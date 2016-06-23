@@ -13,23 +13,55 @@
     <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
     <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
-<style>
-.page-title { padding-top: 12px; }
-</style></head>
-<body>
+<link type="text/css" rel="stylesheet" href="styles/jsdoc-custom.min.css">
+</head>
+<body><div role="navigation" class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="index.html">
+                ASYNC
+            </a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li id="version-dropdown" class="dropdown">
+                    <a href="#" class="dropdown-toggle vertically-centered" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        v <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="docs.html">
+                                v2.0.x
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/caolan/async/blob/v1.5.2/README.md">
+                                v1.5.x
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
 
-<input type="checkbox" id="nav-trigger" class="nav-trigger">
-<label for="nav-trigger" class="navicon-button x">
+            <form class="navbar-form navbar-right" role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                </div>
+            </form>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="docs.html">Docs</a></li>
+                <li><a href="https://github.com/caolan/async">Source</a></li>
+            </ul>
+
+        </div>
+    </div>
+</div>
+<div class="container-fluid"><input type="checkbox" id="nav-trigger" class="nav-trigger"><label for="nav-trigger" class="navicon-button x">
   <div class="navicon"></div>
-</label>
-
-<label for="nav-trigger" class="overlay"></label>
-
-<nav>
-    <h2><a href="index.html">Home</a></h2><h3>ASYNC</h3><ul><li><a href="docs.html#collections">Collections</a><ul class="methods"><li data-type="method"><a href="docs.html#.concat">concat</a></li><li data-type="method"><a href="docs.html#.concatSeries">concatSeries</a></li><li data-type="method"><a href="docs.html#.detect">detect</a></li><li data-type="method"><a href="docs.html#.detectLimit">detectLimit</a></li><li data-type="method"><a href="docs.html#.detectSeries">detectSeries</a></li><li data-type="method"><a href="docs.html#.each">each</a></li><li data-type="method"><a href="docs.html#.eachLimit">eachLimit</a></li><li data-type="method"><a href="docs.html#.eachOf">eachOf</a></li><li data-type="method"><a href="docs.html#.eachOfLimit">eachOfLimit</a></li><li data-type="method"><a href="docs.html#.eachOfSeries">eachOfSeries</a></li><li data-type="method"><a href="docs.html#.eachSeries">eachSeries</a></li><li data-type="method"><a href="docs.html#.every">every</a></li><li data-type="method"><a href="docs.html#.everyLimit">everyLimit</a></li><li data-type="method"><a href="docs.html#.everySeries">everySeries</a></li><li data-type="method"><a href="docs.html#.filter">filter</a></li><li data-type="method"><a href="docs.html#.filterLimit">filterLimit</a></li><li data-type="method"><a href="docs.html#.filterSeries">filterSeries</a></li><li data-type="method"><a href="docs.html#.map">map</a></li><li data-type="method"><a href="docs.html#.mapLimit">mapLimit</a></li><li data-type="method"><a href="docs.html#.mapSeries">mapSeries</a></li><li data-type="method"><a href="docs.html#.mapValues">mapValues</a></li><li data-type="method"><a href="docs.html#.mapValuesLimit">mapValuesLimit</a></li><li data-type="method"><a href="docs.html#.mapValuesSeries">mapValuesSeries</a></li><li data-type="method"><a href="docs.html#.reduce">reduce</a></li><li data-type="method"><a href="docs.html#.reduceRight">reduceRight</a></li><li data-type="method"><a href="docs.html#.reject">reject</a></li><li data-type="method"><a href="docs.html#.rejectLimit">rejectLimit</a></li><li data-type="method"><a href="docs.html#.rejectSeries">rejectSeries</a></li><li data-type="method"><a href="docs.html#.some">some</a></li><li data-type="method"><a href="docs.html#.someLimit">someLimit</a></li><li data-type="method"><a href="docs.html#.someSeries">someSeries</a></li><li data-type="method"><a href="docs.html#.sortBy">sortBy</a></li><li data-type="method"><a href="docs.html#.transform">transform</a></li></ul></li><li><a href="docs.html#controlflow">Control Flow</a><ul class="methods"><li data-type="method"><a href="docs.html#.applyEach">applyEach</a></li><li data-type="method"><a href="docs.html#.applyEachSeries">applyEachSeries</a></li><li data-type="method"><a href="docs.html#.auto">auto</a></li><li data-type="method"><a href="docs.html#.autoInject">autoInject</a></li><li data-type="method"><a href="docs.html#.cargo">cargo</a></li><li data-type="method"><a href="docs.html#.compose">compose</a></li><li data-type="method"><a href="docs.html#.doDuring">doDuring</a></li><li data-type="method"><a href="docs.html#.doUntil">doUntil</a></li><li data-type="method"><a href="docs.html#.doWhilst">doWhilst</a></li><li data-type="method"><a href="docs.html#.during">during</a></li><li data-type="method"><a href="docs.html#.forever">forever</a></li><li data-type="method"><a href="docs.html#.iterator">iterator</a></li><li data-type="method"><a href="docs.html#.parallel">parallel</a></li><li data-type="method"><a href="docs.html#.parallelLimit">parallelLimit</a></li><li data-type="method"><a href="docs.html#.priorityQueue">priorityQueue</a></li><li data-type="method"><a href="docs.html#.queue">queue</a></li><li data-type="method"><a href="docs.html#.race">race</a></li><li data-type="method"><a href="docs.html#.retry">retry</a></li><li data-type="method"><a href="docs.html#.retryable">retryable</a></li><li data-type="method"><a href="docs.html#.seq">seq</a></li><li data-type="method"><a href="docs.html#.series">series</a></li><li data-type="method"><a href="docs.html#.times">times</a></li><li data-type="method"><a href="docs.html#.timesLimit">timesLimit</a></li><li data-type="method"><a href="docs.html#.timesSeries">timesSeries</a></li><li data-type="method"><a href="docs.html#.until">until</a></li><li data-type="method"><a href="docs.html#.waterfall">waterfall</a></li><li data-type="method"><a href="docs.html#.whilst">whilst</a></li></ul></li><li><a href="docs.html#utils">Utils</a><ul class="methods"><li data-type="method"><a href="docs.html#.apply">apply</a></li><li data-type="method"><a href="docs.html#.asyncify">asyncify</a></li><li data-type="method"><a href="docs.html#.constant">constant</a></li><li data-type="method"><a href="docs.html#.dir">dir</a></li><li data-type="method"><a href="docs.html#.ensureAsync">ensureAsync</a></li><li data-type="method"><a href="docs.html#.log">log</a></li><li data-type="method"><a href="docs.html#.memoize">memoize</a></li><li data-type="method"><a href="docs.html#.nextTick">nextTick</a></li><li data-type="method"><a href="docs.html#.reflect">reflect</a></li><li data-type="method"><a href="docs.html#.reflectAll">reflectAll</a></li><li data-type="method"><a href="docs.html#.setImmediate">setImmediate</a></li><li data-type="method"><a href="docs.html#.timeout">timeout</a></li><li data-type="method"><a href="docs.html#.unmemoize">unmemoize</a></li></ul></li></ul>
-</nav>
-
-<div id="main">
+</label><label for="nav-trigger" class="overlay"></label><div class="fix-nav-toc"><nav>
+    <h3>Methods:</h3><ul><li><a href="docs.html#collections">Collections</a><ul class="methods"><li data-type="method"><a href="docs.html#.concat">concat</a></li><li data-type="method"><a href="docs.html#.concatSeries">concatSeries</a></li><li data-type="method"><a href="docs.html#.detect">detect</a></li><li data-type="method"><a href="docs.html#.detectLimit">detectLimit</a></li><li data-type="method"><a href="docs.html#.detectSeries">detectSeries</a></li><li data-type="method"><a href="docs.html#.each">each</a></li><li data-type="method"><a href="docs.html#.eachLimit">eachLimit</a></li><li data-type="method"><a href="docs.html#.eachOf">eachOf</a></li><li data-type="method"><a href="docs.html#.eachOfLimit">eachOfLimit</a></li><li data-type="method"><a href="docs.html#.eachOfSeries">eachOfSeries</a></li><li data-type="method"><a href="docs.html#.eachSeries">eachSeries</a></li><li data-type="method"><a href="docs.html#.every">every</a></li><li data-type="method"><a href="docs.html#.everyLimit">everyLimit</a></li><li data-type="method"><a href="docs.html#.everySeries">everySeries</a></li><li data-type="method"><a href="docs.html#.filter">filter</a></li><li data-type="method"><a href="docs.html#.filterLimit">filterLimit</a></li><li data-type="method"><a href="docs.html#.filterSeries">filterSeries</a></li><li data-type="method"><a href="docs.html#.map">map</a></li><li data-type="method"><a href="docs.html#.mapLimit">mapLimit</a></li><li data-type="method"><a href="docs.html#.mapSeries">mapSeries</a></li><li data-type="method"><a href="docs.html#.mapValues">mapValues</a></li><li data-type="method"><a href="docs.html#.mapValuesLimit">mapValuesLimit</a></li><li data-type="method"><a href="docs.html#.mapValuesSeries">mapValuesSeries</a></li><li data-type="method"><a href="docs.html#.reduce">reduce</a></li><li data-type="method"><a href="docs.html#.reduceRight">reduceRight</a></li><li data-type="method"><a href="docs.html#.reject">reject</a></li><li data-type="method"><a href="docs.html#.rejectLimit">rejectLimit</a></li><li data-type="method"><a href="docs.html#.rejectSeries">rejectSeries</a></li><li data-type="method"><a href="docs.html#.some">some</a></li><li data-type="method"><a href="docs.html#.someLimit">someLimit</a></li><li data-type="method"><a href="docs.html#.someSeries">someSeries</a></li><li data-type="method"><a href="docs.html#.sortBy">sortBy</a></li><li data-type="method"><a href="docs.html#.transform">transform</a></li></ul></li><li><a href="docs.html#controlflow">Control Flow</a><ul class="methods"><li data-type="method"><a href="docs.html#.applyEach">applyEach</a></li><li data-type="method"><a href="docs.html#.applyEachSeries">applyEachSeries</a></li><li data-type="method"><a href="docs.html#.auto">auto</a></li><li data-type="method"><a href="docs.html#.autoInject">autoInject</a></li><li data-type="method"><a href="docs.html#.cargo">cargo</a></li><li data-type="method"><a href="docs.html#.compose">compose</a></li><li data-type="method"><a href="docs.html#.doDuring">doDuring</a></li><li data-type="method"><a href="docs.html#.doUntil">doUntil</a></li><li data-type="method"><a href="docs.html#.doWhilst">doWhilst</a></li><li data-type="method"><a href="docs.html#.during">during</a></li><li data-type="method"><a href="docs.html#.forever">forever</a></li><li data-type="method"><a href="docs.html#.iterator">iterator</a></li><li data-type="method"><a href="docs.html#.parallel">parallel</a></li><li data-type="method"><a href="docs.html#.parallelLimit">parallelLimit</a></li><li data-type="method"><a href="docs.html#.priorityQueue">priorityQueue</a></li><li data-type="method"><a href="docs.html#.queue">queue</a></li><li data-type="method"><a href="docs.html#.race">race</a></li><li data-type="method"><a href="docs.html#.retry">retry</a></li><li data-type="method"><a href="docs.html#.retryable">retryable</a></li><li data-type="method"><a href="docs.html#.seq">seq</a></li><li data-type="method"><a href="docs.html#.series">series</a></li><li data-type="method"><a href="docs.html#.times">times</a></li><li data-type="method"><a href="docs.html#.timesLimit">timesLimit</a></li><li data-type="method"><a href="docs.html#.timesSeries">timesSeries</a></li><li data-type="method"><a href="docs.html#.until">until</a></li><li data-type="method"><a href="docs.html#.waterfall">waterfall</a></li><li data-type="method"><a href="docs.html#.whilst">whilst</a></li></ul></li><li><a href="docs.html#utils">Utils</a><ul class="methods"><li data-type="method"><a href="docs.html#.apply">apply</a></li><li data-type="method"><a href="docs.html#.asyncify">asyncify</a></li><li data-type="method"><a href="docs.html#.constant">constant</a></li><li data-type="method"><a href="docs.html#.dir">dir</a></li><li data-type="method"><a href="docs.html#.ensureAsync">ensureAsync</a></li><li data-type="method"><a href="docs.html#.log">log</a></li><li data-type="method"><a href="docs.html#.memoize">memoize</a></li><li data-type="method"><a href="docs.html#.nextTick">nextTick</a></li><li data-type="method"><a href="docs.html#.reflect">reflect</a></li><li data-type="method"><a href="docs.html#.reflectAll">reflectAll</a></li><li data-type="method"><a href="docs.html#.setImmediate">setImmediate</a></li><li data-type="method"><a href="docs.html#.timeout">timeout</a></li><li data-type="method"><a href="docs.html#.unmemoize">unmemoize</a></li></ul></li></ul>
+</nav></div><div class="fix-main-pos"><div id="main">
     
     <h1 class="page-title">Utils</h1>
     
@@ -53,7 +85,7 @@
     <div class="container-overview">
     
         
-            <div class="description"><p>A collection of <code>async</code> utility functions.</p></div>
+            <div class="description"><pre class="prettyprint source"><code>import index from &apos;async/index&apos;;</code></pre><p>A collection of <code>async</code> utility functions.</p></div>
         
 
         
@@ -159,7 +191,7 @@
 
 
 <div class="description">
-    <pre class="prettyprint source"><code>import apply from &apos;async/apply&apos;</code></pre><p>Creates a continuation function with some arguments already applied.</p>
+    <pre class="prettyprint source"><code>import apply from &apos;async/apply&apos;;</code></pre><p>Creates a continuation function with some arguments already applied.</p>
 <p>Useful as a shorthand when combined with other control flow functions. Any
 arguments passed to the returned function are added to the arguments
 originally passed to apply.</p>
@@ -367,7 +399,7 @@ three</code></pre>
 
 
 <div class="description">
-    <pre class="prettyprint source"><code>import asyncify from &apos;async/asyncify&apos;</code></pre><p>Take a sync function and make it async, passing its return value to a
+    <pre class="prettyprint source"><code>import asyncify from &apos;async/asyncify&apos;;</code></pre><p>Take a sync function and make it async, passing its return value to a
 callback. This is useful for plugging sync functions into a waterfall,
 series, or other async functions. Any arguments passed to the generated
 function will be passed to the wrapped function (except for the final
@@ -563,7 +595,7 @@ q.push(files);</code></pre>
 
 
 <div class="description">
-    <pre class="prettyprint source"><code>import constant from &apos;async/constant&apos;</code></pre><p>Returns a function that when called, calls-back with the values provided.
+    <pre class="prettyprint source"><code>import constant from &apos;async/constant&apos;;</code></pre><p>Returns a function that when called, calls-back with the values provided.
 Useful as the first function in a <a href="docs.html#.waterfall"><code>waterfall</code></a>, or for plugging values in to
 <a href="docs.html#.auto"><code>auto</code></a>.</p>
 </div>
@@ -761,7 +793,7 @@ async.auto({
 
 
 <div class="description">
-    <pre class="prettyprint source"><code>import dir from &apos;async/dir&apos;</code></pre><p>Logs the result of an <code>async</code> function to the <code>console</code> using <code>console.dir</code>
+    <pre class="prettyprint source"><code>import dir from &apos;async/dir&apos;;</code></pre><p>Logs the result of an <code>async</code> function to the <code>console</code> using <code>console.dir</code>
 to display the properties of the resulting object. Only works in Node.js or
 in browsers that support <code>console.dir</code> and <code>console.error</code> (such as FF and
 Chrome). If multiple arguments are returned from the async function,
@@ -954,7 +986,7 @@ node&gt; async.dir(hello, &apos;world&apos;);
 
 
 <div class="description">
-    <pre class="prettyprint source"><code>import ensureAsync from &apos;async/ensureAsync&apos;</code></pre><p>Wrap an async function and ensure it calls its callback on a later tick of
+    <pre class="prettyprint source"><code>import ensureAsync from &apos;async/ensureAsync&apos;;</code></pre><p>Wrap an async function and ensure it calls its callback on a later tick of
 the event loop.  If the function already calls its callback on a next tick,
 no extra deferral is added. This is useful for preventing stack overflows
 (<code>RangeError: Maximum call stack size exceeded</code>) and generally keeping
@@ -1132,7 +1164,7 @@ async.mapSeries(args, async.ensureAsync(sometimesAsync), done);</code></pre>
 
 
 <div class="description">
-    <pre class="prettyprint source"><code>import log from &apos;async/log&apos;</code></pre><p>Logs the result of an <code>async</code> function to the <code>console</code>. Only works in
+    <pre class="prettyprint source"><code>import log from &apos;async/log&apos;;</code></pre><p>Logs the result of an <code>async</code> function to the <code>console</code>. Only works in
 Node.js or in browsers that support <code>console.log</code> and <code>console.error</code> (such
 as FF and Chrome). If multiple arguments are returned from the async
 function, <code>console.log</code> is called on each argument in order.</p>
@@ -1324,7 +1356,7 @@ node&gt; async.log(hello, &apos;world&apos;);
 
 
 <div class="description">
-    <pre class="prettyprint source"><code>import memoize from &apos;async/memoize&apos;</code></pre><p>Caches the results of an <code>async</code> function. When creating a hash to store
+    <pre class="prettyprint source"><code>import memoize from &apos;async/memoize&apos;;</code></pre><p>Caches the results of an <code>async</code> function. When creating a hash to store
 function results against, the callback is omitted from the hash and an
 optional hash function can be used.</p>
 <p>If no hash function is specified, the first argument is used as a hash key,
@@ -1525,7 +1557,7 @@ fn(&apos;some name&apos;, function() {
 
 
 <div class="description">
-    <pre class="prettyprint source"><code>import nextTick from &apos;async/nextTick&apos;</code></pre><p>Calls <code>callback</code> on a later loop around the event loop. In Node.js this just
+    <pre class="prettyprint source"><code>import nextTick from &apos;async/nextTick&apos;;</code></pre><p>Calls <code>callback</code> on a later loop around the event loop. In Node.js this just
 calls <code>setImmediate</code>.  In the browser it will use <code>setImmediate</code> if
 available, otherwise <code>setTimeout(callback, 0)</code>, which means other higher
 priority events may precede the execution of <code>callback</code>.</p>
@@ -1719,7 +1751,7 @@ async.setImmediate(function (a, b, c) {
 
 
 <div class="description">
-    <pre class="prettyprint source"><code>import reflect from &apos;async/reflect&apos;</code></pre><p>Wraps the function in another function that always returns data even when it
+    <pre class="prettyprint source"><code>import reflect from &apos;async/reflect&apos;;</code></pre><p>Wraps the function in another function that always returns data even when it
 errors.</p>
 <p>The object returned has either the property <code>error</code> or <code>value</code>.</p>
 </div>
@@ -1903,7 +1935,7 @@ function(err, results) {
 
 
 <div class="description">
-    <pre class="prettyprint source"><code>import reflectAll from &apos;async/reflectAll&apos;</code></pre><p>A helper function that wraps an array of functions with reflect.</p>
+    <pre class="prettyprint source"><code>import reflectAll from &apos;async/reflectAll&apos;;</code></pre><p>A helper function that wraps an array of functions with reflect.</p>
 </div>
 
 
@@ -2093,7 +2125,7 @@ function(err, results) {
 
 
 <div class="description">
-    <pre class="prettyprint source"><code>import setImmediate from &apos;async/setImmediate&apos;</code></pre><p>Calls <code>callback</code> on a later loop around the event loop. In Node.js this just
+    <pre class="prettyprint source"><code>import setImmediate from &apos;async/setImmediate&apos;;</code></pre><p>Calls <code>callback</code> on a later loop around the event loop. In Node.js this just
 calls <code>setImmediate</code>.  In the browser it will use <code>setImmediate</code> if
 available, otherwise <code>setTimeout(callback, 0)</code>, which means other higher
 priority events may precede the execution of <code>callback</code>.</p>
@@ -2287,7 +2319,7 @@ async.setImmediate(function (a, b, c) {
 
 
 <div class="description">
-    <pre class="prettyprint source"><code>import timeout from &apos;async/timeout&apos;</code></pre><p>Sets a time limit on an asynchronous function. If the function does not call
+    <pre class="prettyprint source"><code>import timeout from &apos;async/timeout&apos;;</code></pre><p>Sets a time limit on an asynchronous function. If the function does not call
 its callback within the specified milliseconds, it will be called with a
 timeout error. The code property for the error object will be <code>&apos;ETIMEDOUT&apos;</code>.</p>
 </div>
@@ -2526,7 +2558,7 @@ the control flow functions.</p>
 
 
 <div class="description">
-    <pre class="prettyprint source"><code>import unmemoize from &apos;async/unmemoize&apos;</code></pre><p>Undoes a <a href="docs.html#.memoize">memoize</a>d function, reverting it to the original,
+    <pre class="prettyprint source"><code>import unmemoize from &apos;async/unmemoize&apos;;</code></pre><p>Undoes a <a href="docs.html#.memoize">memoize</a>d function, reverting it to the original,
 unmemoized form. Handy for testing.</p>
 </div>
 
@@ -2688,14 +2720,24 @@ unmemoized form. Handy for testing.</p>
 
 
 
-</div>
-
-<br class="clear">
-
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Tue Jun 21 2016 05:03:26 GMT-0400 (EDT) using the Minami theme.
- Documentation has been modified from the original.  For more information, please see the <a href="https://github.com/caolan/async">async</a> repository.</footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Thu Jun 23 2016 03:25:40 GMT-0400 (EDT) using the Minami theme.
+ Documentation has been modified from the original.  For more information, please see the <a href="https://github.com/caolan/async">async</a> repository.</footer></div></div><br class="clear"><script>prettyPrint();</script><script src="scripts/linenumber.js"></script><script src="scripts/jsdoc-custom.min.js"></script></div>
 
-<script>prettyPrint();</script>
-<script src="scripts/linenumber.js"></script>
-<script src="scripts/async.js"></script></body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
