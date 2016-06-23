@@ -1,3 +1,69 @@
 .page-title {
     padding-top: 12px;
 }
+
+html, body {
+    padding-left: 0px;
+    height: 100%;
+    width: 100%;
+}
+
+body .container-fluid {
+    padding-left: 0px;
+}
+
+.navbar {
+    height: 50px;
+}
+
+.fix-nav-toc {
+    position: fixed;
+    top: 50px;
+    left: 0px;
+    bottom: 0px;
+    padding-left: 15px;
+    width: 250px;
+    overflow-y: auto;
+}
+
+nav {
+    position: relative;
+    width: 100%;
+}
+
+nav ul {
+    padding-left: 0px;
+}
+
+.fix-main-pos {
+    /* move properties from #main to .fix-main-pos*/
+    position: fixed;
+    background: #fff;
+    margin-left: 250px;
+    top: 50px;
+    bottom: 0px;
+    min-width: 360px;
+    width: calc(100% - 250px);
+    overflow-y: auto;
+}
+
+#main {
+    position: relative;
+    float: none;
+    width: 100%;
+    margin-top: 50px;
+}
+
+footer {
+    margin: 0px;
+}
+
+#version-dropdown .dropdown-toggle {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+pre {
+    background: #fff;
+    padding: 0px;
+}

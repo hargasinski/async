@@ -9,7 +9,7 @@ var docsDir = path.join(__dirname, '../../docs');
 var asyncFile = path.join(__dirname, '../../dist/async.js');
 var customStyleSheet = path.join(__dirname, './jsdoc-custom.css');
 
-var pageTitle = 'ASYNC';
+var pageTitle = 'Methods:';
 
 var docFilename = 'docs.html';
 var mainModuleFile = 'module-async.html';
@@ -68,10 +68,10 @@ function combineFakeModules(files, callback) {
 }
 
 function applyPreCheerioFixes(data) {
-    var customStyle = '<link type="text/css" rel="stylesheet" href="styles/jsdoc-custom.css"></link>\n'
+    var customStyle = '<link type="text/css" rel="stylesheet" href="styles/jsdoc-custom.min.css"></link>\n'
     var closingHeadTag = '</head>'
 
-    var asyncScript = '<script src="scripts/async.js"></script>\n';
+    var asyncScript = '<script src="scripts/jsdoc-custom.min.js"></script>\n';
     var closingBodyTag = '</body>';
 
     var rIncorrectCFText = />ControlFlow</g;
@@ -93,12 +93,26 @@ function applyPreCheerioFixes(data) {
         });
 };
 
+function addStaticHeader($file, $headerContent) {
+    var $body = $file.find('body');
+    var $mainContent = $body.find('#main');
+    var $bodyContent = $body.children();
+    $body.children().remove();
+    $body.prepend('<div class="container-fluid"></div>');
+    $body.find('div').prepend($bodyContent);
+    $body.prepend($headerContent);
+    $mainContent.wrap('<div class="fix-main-pos"></div>');
+    $file.find('nav').wrap('<div class="fix-nav-toc"></div>');
+    $file.find('footer').appendTo($mainContent);
+};
+
 function fixToc($page, moduleFiles) {
     // remove `async` listing from toc
     $page.find('li').find('a[href="'+mainModuleFile+'"]').parent().remove();
 
     // change toc title
     $page.find('nav').children('h3').text(pageTitle);
+    $page.find('nav').children('h2').remove();
 
     // make everything point to the same 'docs.html' page
     _.each(moduleFiles, function(filename) {
@@ -128,23 +142,25 @@ function fixFooter($page) {
 function fixModuleLinks(files, callback) {
     var moduleFiles = extractModuleFiles(files);
 
-    async.each(files, function(file, fileCallback) {
-        var filePath = path.join(docsDir, file);
-        fs.readFile(filePath, 'utf8', function(err, fileData) {
-            if (err) return fileCallback(err);
-            var $file = $(applyPreCheerioFixes(fileData));
+    fs.readFile(path.join(__dirname, 'navbar.html'), 'utf8', function(err, navbarData) {
+        if (err) return callback(err);
 
-            fixToc($file, moduleFiles);
+        var $headerContent = $(navbarData);
+        async.each(files, function(file, fileCallback) {
+            var filePath = path.join(docsDir, file);
+            fs.readFile(filePath, 'utf8', function(err, fileData) {
+                if (err) return fileCallback(err);
+                var $file = $(applyPreCheerioFixes(fileData));
 
-            fixFooter($file);
-            $file.find('[href="'+mainModuleFile+'"]').attr('href', docFilename);
-            generateHTMLFile(filePath, $file, fileCallback);
-        });
-    }, callback);
+                addStaticHeader($file, $headerContent);
+                fixToc($file, moduleFiles);
+                fixFooter($file);
+                $file.find('[href="'+mainModuleFile+'"]').attr('href', docFilename);
+                generateHTMLFile(filePath, $file, fileCallback);
+            });
+        }, callback);
+    });
 }
-
-fs.copySync(asyncFile, path.join(docsDir, 'scripts/async.js'), { clobber: 'true'});
-fs.copySync(customStyleSheet, path.join(docsDir, 'styles/jsdoc-custom.css'), { clobber: 'true'});
 
 fs.readdir(docsDir, function(err, files) {
     if (err) {
