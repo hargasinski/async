@@ -67,11 +67,10 @@ function combineFakeModules(files, callback) {
     });
 }
 
-function applyPreCheerioFixes(data) {
-    var customStyle = '<link type="text/css" rel="stylesheet" href="styles/jsdoc-custom.min.css"></link>\n'
+function applyPreCheerioFixes(data, headLinks) {
     var closingHeadTag = '</head>'
 
-    var asyncScript = '<script src="scripts/jsdoc-custom.min.js"></script>\n';
+    var customScript = '<script src="scripts/jsdoc-custom.js"></script>\n';
     var closingBodyTag = '</body>';
 
     var rIncorrectCFText = />ControlFlow</g;
@@ -80,9 +79,9 @@ function applyPreCheerioFixes(data) {
     var rIncorrectModuleText = />module:(\w+)\.(\w+)</g
 
     // the heading needs additional padding at the top so it doesn't get cutoff
-    return data.replace(closingHeadTag, customStyle+closingHeadTag)
+    return data.replace(closingHeadTag, headLinks+closingHeadTag)
         // inject the async library onto each page
-        .replace(closingBodyTag, asyncScript+closingBodyTag)
+        .replace(closingBodyTag, customScript+closingBodyTag)
         // for JSDoc to work, the module needs to be labelled 'ControlFlow', while
         // on the page it should appear as 'Control Flow'
         .replace(rIncorrectCFText, fixedCFText)
@@ -96,14 +95,14 @@ function applyPreCheerioFixes(data) {
 function addStaticHeader($file, $headerContent) {
     var $body = $file.find('body');
     var $mainContent = $body.find('#main');
-    var $bodyContent = $body.children();
-    $body.children().remove();
-    $body.prepend('<div class="container-fluid"></div>');
-    $body.find('div').prepend($bodyContent);
+    // var $bodyContent = $body.children();
+    // $body.children().remove();
+    // $body.prepend('<div class="container-fluid"></div>');
+    // $body.find('div').prepend($bodyContent);
     $body.prepend($headerContent);
-    $mainContent.wrap('<div class="fix-main-pos"></div>');
-    $file.find('nav').wrap('<div class="fix-nav-toc"></div>');
-    $file.find('footer').appendTo($mainContent);
+    // $mainContent.wrap('<div id="main-wrapper"></div>');
+    // $file.find('nav').wrap('<div class="fix-nav-toc"></div>');
+    // $file.find('footer').appendTo($mainContent);
 };
 
 function fixToc($page, moduleFiles) {
@@ -142,15 +141,20 @@ function fixFooter($page) {
 function fixModuleLinks(files, callback) {
     var moduleFiles = extractModuleFiles(files);
 
-    fs.readFile(path.join(__dirname, 'navbar.html'), 'utf8', function(err, navbarData) {
+    async.map(['head-data.html', 'navbar.html'], function(filename, fileCallback) {
+        fs.readFile(path.join(__dirname, filename), 'utf8', function(err, data) {
+            if (err) return fileCallback(err);
+            return fileCallback(null, data);
+        });
+    }, function(err, results) {
         if (err) return callback(err);
 
-        var $headerContent = $(navbarData);
+        var $headerContent = $(results[1]);
         async.each(files, function(file, fileCallback) {
             var filePath = path.join(docsDir, file);
             fs.readFile(filePath, 'utf8', function(err, fileData) {
                 if (err) return fileCallback(err);
-                var $file = $(applyPreCheerioFixes(fileData));
+                var $file = $(applyPreCheerioFixes(fileData, results[0]));
 
                 addStaticHeader($file, $headerContent);
                 fixToc($file, moduleFiles);
@@ -161,6 +165,11 @@ function fixModuleLinks(files, callback) {
         }, callback);
     });
 }
+
+fs.copySync(path.join(__dirname, '../../dist/async.js'), path.join(docsDir, 'scripts/async.js'), { clobber: true });
+fs.copySync(path.join(__dirname, './jsdoc-custom.js'), path.join(docsDir, 'scripts/jsdoc-custom.js'), { clobber: true });
+fs.copySync(path.join(__dirname, './jsdoc-custom.css'), path.join(docsDir, 'styles/jsdoc-custom.css'), { clobber: true });
+
 
 fs.readdir(docsDir, function(err, files) {
     if (err) {
