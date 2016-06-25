@@ -25,12 +25,7 @@ function initSearchBar() {
     $('.typeahead').typeahead({
         hint: true,
         highlight: true,
-        minLength: 1,
-        updater: function(item) {
-            console.log(item);
-            // Do something with item
-            return item;
-        }
+        minLength: 1
     },
     {
         name: 'Methods',
@@ -45,17 +40,10 @@ function initSearchBar() {
         templates: {
             header: '<h3 class="search-bar-header">Source Files</h3>'
         }
-    }).on('typeahead:selected', function(e){
-        e.target.form.submit();
-   });;
+    });
 }
 
 function init() {
-    $('form').submit(function(e) {
-        e.preventDefault();
-        console.log('submitted');
-    });
-
     fixAnchorPosition();
     window.addEventListener("hashchange", shiftWindow, false);
     initSearchBar();
