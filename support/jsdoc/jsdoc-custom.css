@@ -4,11 +4,13 @@
 
 .navbar-top {
     position: fixed;
-    height: 50px;
+    height: 52px;
     width: 100%;
     z-index: 10;
     top: 0;
     left: 0;
+    overflow-x: hidden; 
+    overflow-y: hidden;
     background-color: #101010;
 }
 
