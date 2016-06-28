@@ -19,7 +19,6 @@ $(function initSearchBar() {
             cache: false,
             wildcard: '%QUERY',
             transform: function(response) {
-                console.log(response);
                 return $.map(response.items, function(issue) {
                     // if (issue.state !== 'open') {
                     //     return null;
