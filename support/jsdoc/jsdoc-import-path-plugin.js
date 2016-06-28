@@ -13,6 +13,9 @@ exports.handlers = {
             '```'
         ];
 
-        e.comment = [lines[0], ...importLines, ...lines.slice(1)].join("\n");
+        if (moduleName !== 'index') {
+            e.comment = [lines[0], ...importLines, ...lines.slice(1)].join("\n");
+        }
+
     }
 };
