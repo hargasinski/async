@@ -1,3 +1,4 @@
+/* eslint no-undef: "off" */
 $(function initSearchBar() {
     function matchSubstrs(methodName) {
         var tokens = [];
@@ -14,7 +15,7 @@ $(function initSearchBar() {
         datumTokenizer: matchSubstrs,
         queryTokenizer: Bloodhound.tokenizers.whitespace,
         prefetch: {
-            url: './methodNames.json',
+            url: './data/methodNames.json',
             cache: false
         }
     });
@@ -23,7 +24,7 @@ $(function initSearchBar() {
         datumTokenizer: matchSubstrs,
         queryTokenizer: Bloodhound.tokenizers.whitespace,
         prefetch: {
-            url: './sourceFiles.json',
+            url: './data/sourceFiles.json',
             cache: false
         }
     });
@@ -56,22 +57,19 @@ $(function initSearchBar() {
         hint: true,
         highlight: true,
         minLength: 1
-    },
-    {
+    }, {
         name: 'Methods',
         source: methodNames,
         templates: {
             header: '<h3 class="search-bar-header-first">Methods</h3>'
         }
-    },
-    {
+    }, {
         name: 'Files',
         source: sourceFiles,
         templates: {
             header: '<h3 class="search-bar-header">Source Files</h3>'
         }
-    },
-    {
+    }, {
         name: 'Issues',
         source: githubIssues,
         display: 'name',
@@ -85,11 +83,10 @@ $(function initSearchBar() {
         } else {
             host = location.protocol + '//' + location.host;
         }
-        
+
         var _path = location.pathname.split("/");
-        
         var currentPage = _path[_path.length - 1];
-        host += _path.slice(1, -1).join("/") + "/";
+        host += "/" + _path.slice(1, -1).join("/") + "/";
 
         // handle issues
         if (typeof suggestion !== 'string') {
