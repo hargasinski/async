@@ -30,10 +30,10 @@
   </div>
   <ul class="nav navbar-nav">
     <li id="version-dropdown" class="dropdown">
-      <a href="#" class="dropdown-toggle vertically-centered" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">v2.2.0 <span class="caret"></span>
+      <a href="#" class="dropdown-toggle vertically-centered" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">v2.3.0 <span class="caret"></span>
       </a>
       <ul class="dropdown-menu">
-        <li><a href="docs.html">v2.2.0</a></li>
+        <li><a href="docs.html">v2.3.0</a></li>
         <li>
           <a href="https://github.com/caolan/async/blob/v1.5.2/README.md">v1.5.x</a>
         </li>
@@ -141,7 +141,7 @@ arrays and objects.</p></div>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line9">line 9</a>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line51">line 51</a>
     </li></ul></dd>
     
 
@@ -270,7 +270,7 @@ results array will be returned in the original order of <code>coll</code> passed
             <td class="type">
             
                 
-<span class="param-type">function</span>
+<span class="param-type">AsyncFunction</span>
 
 
             
@@ -280,10 +280,8 @@ results array will be returned in the original order of <code>coll</code> passed
 
             
 
-            <td class="description last"><p>A function to apply to each item in <code>coll</code>.
-The iteratee is passed a <code>callback(err, results)</code> which must be called once
-it has completed with an error (which can be <code>null</code>) and an array of results.
-Invoked with (item, callback).</p></td>
+            <td class="description last"><p>A function to apply to each item in <code>coll</code>,
+which should use an array as its result. Invoked with (item, callback).</p></td>
         </tr>
 
     
@@ -469,7 +467,7 @@ containing the concatenated results of the <code>iteratee</code> function. Invok
             <td class="type">
             
                 
-<span class="param-type">function</span>
+<span class="param-type">AsyncFunction</span>
 
 
             
@@ -480,8 +478,7 @@ containing the concatenated results of the <code>iteratee</code> function. Invok
             
 
             <td class="description last"><p>A function to apply to each item in <code>coll</code>.
-The iteratee is passed a <code>callback(err, results)</code> which must be called once
-it has completed with an error (which can be <code>null</code>) and an array of results.
+The iteratee should complete with an array an array of results.
 Invoked with (item, callback).</p></td>
         </tr>
 
@@ -679,7 +676,7 @@ If order within the original <code>coll</code> is important, then look at
             <td class="type">
             
                 
-<span class="param-type">function</span>
+<span class="param-type">AsyncFunction</span>
 
 
             
@@ -690,8 +687,8 @@ If order within the original <code>coll</code> is important, then look at
             
 
             <td class="description last"><p>A truth test to apply to each item in <code>coll</code>.
-The iteratee is passed a <code>callback(err, truthValue)</code> which must be called
-with a boolean argument once it has completed. Invoked with (item, callback).</p></td>
+The iteratee must complete with a boolean value as its result.
+Invoked with (item, callback).</p></td>
         </tr>
 
     
@@ -911,7 +908,7 @@ time.</p>
             <td class="type">
             
                 
-<span class="param-type">function</span>
+<span class="param-type">AsyncFunction</span>
 
 
             
@@ -922,8 +919,8 @@ time.</p>
             
 
             <td class="description last"><p>A truth test to apply to each item in <code>coll</code>.
-The iteratee is passed a <code>callback(err, truthValue)</code> which must be called
-with a boolean argument once it has completed. Invoked with (item, callback).</p></td>
+The iteratee must complete with a boolean value as its result.
+Invoked with (item, callback).</p></td>
         </tr>
 
     
@@ -1115,7 +1112,7 @@ Result will be the first item in the array that passes the truth test
             <td class="type">
             
                 
-<span class="param-type">function</span>
+<span class="param-type">AsyncFunction</span>
 
 
             
@@ -1126,8 +1123,8 @@ Result will be the first item in the array that passes the truth test
             
 
             <td class="description last"><p>A truth test to apply to each item in <code>coll</code>.
-The iteratee is passed a <code>callback(err, truthValue)</code> which must be called
-with a boolean argument once it has completed. Invoked with (item, callback).</p></td>
+The iteratee must complete with a boolean value as its result.
+Invoked with (item, callback).</p></td>
         </tr>
 
     
@@ -1325,7 +1322,7 @@ there is no guarantee that the iteratee functions will complete in order.</p>
             <td class="type">
             
                 
-<span class="param-type">function</span>
+<span class="param-type">AsyncFunction</span>
 
 
             
@@ -1335,12 +1332,10 @@ there is no guarantee that the iteratee functions will complete in order.</p>
 
             
 
-            <td class="description last"><p>A function to apply to each item
-in <code>coll</code>. The iteratee is passed a <code>callback(err)</code> which must be called once
-it has completed. If no error has occurred, the <code>callback</code> should be run
-without arguments or with an explicit <code>null</code> argument. The array index is not
-passed to the iteratee. Invoked with (item, callback). If you need the index,
-use <code>eachOf</code>.</p></td>
+            <td class="description last"><p>An async function to apply to
+each item in <code>coll</code>. Invoked with (item, callback).
+The array index is not passed to the iteratee.
+If you need the index, use <code>eachOf</code>.</p></td>
         </tr>
 
     
@@ -1446,7 +1441,7 @@ async.each(openFiles, function(file, callback) {
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="each.js.html">each.js</a>, <a href="each.js.html#line4">line 4</a>
+        <a href="each.js.html">each.js</a>, <a href="each.js.html#line5">line 5</a>
     </li></ul></dd>
     
 
@@ -1580,7 +1575,7 @@ async.each(openFiles, function(file, callback) {
             <td class="type">
             
                 
-<span class="param-type">function</span>
+<span class="param-type">AsyncFunction</span>
 
 
             
@@ -1590,12 +1585,11 @@ async.each(openFiles, function(file, callback) {
 
             
 
-            <td class="description last"><p>A function to apply to each item in <code>coll</code>. The
-iteratee is passed a <code>callback(err)</code> which must be called once it has
-completed. If no error has occurred, the <code>callback</code> should be run without
-arguments or with an explicit <code>null</code> argument. The array index is not passed
-to the iteratee. Invoked with (item, callback). If you need the index, use
-<code>eachOfLimit</code>.</p></td>
+            <td class="description last"><p>An async function to apply to each item in
+<code>coll</code>.
+The array index is not passed to the iteratee.
+If you need the index, use <code>eachOfLimit</code>.
+Invoked with (item, callback).</p></td>
         </tr>
 
     
@@ -1666,7 +1660,7 @@ to the iteratee. Invoked with (item, callback). If you need the index, use
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="eachLimit.js.html">eachLimit.js</a>, <a href="eachLimit.js.html#line4">line 4</a>
+        <a href="eachLimit.js.html">eachLimit.js</a>, <a href="eachLimit.js.html#line5">line 5</a>
     </li></ul></dd>
     
 
@@ -1785,7 +1779,7 @@ to the iteratee.</p>
             <td class="type">
             
                 
-<span class="param-type">function</span>
+<span class="param-type">AsyncFunction</span>
 
 
             
@@ -1796,11 +1790,9 @@ to the iteratee.</p>
             
 
             <td class="description last"><p>A function to apply to each
-item in <code>coll</code>. The <code>key</code> is the item&apos;s key, or index in the case of an
-array. The iteratee is passed a <code>callback(err)</code> which must be called once it
-has completed. If no error has occurred, the callback should be run without
-arguments or with an explicit <code>null</code> argument. Invoked with
-(item, key, callback).</p></td>
+item in <code>coll</code>.
+The <code>key</code> is the item&apos;s key, or index in the case of an array.
+Invoked with (item, key, callback).</p></td>
         </tr>
 
     
@@ -1893,7 +1885,7 @@ async.forEachOf(obj, function (value, key, callback) {
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="eachOf.js.html">eachOf.js</a>, <a href="eachOf.js.html#line36">line 36</a>
+        <a href="eachOf.js.html">eachOf.js</a>, <a href="eachOf.js.html#line37">line 37</a>
     </li></ul></dd>
     
 
@@ -2035,7 +2027,7 @@ time.</p>
             <td class="type">
             
                 
-<span class="param-type">function</span>
+<span class="param-type">AsyncFunction</span>
 
 
             
@@ -2045,12 +2037,10 @@ time.</p>
 
             
 
-            <td class="description last"><p>A function to apply to each
+            <td class="description last"><p>An async function to apply to each
 item in <code>coll</code>. The <code>key</code> is the item&apos;s key, or index in the case of an
-array. The iteratee is passed a <code>callback(err)</code> which must be called once it
-has completed. If no error has occurred, the callback should be run without
-arguments or with an explicit <code>null</code> argument. Invoked with
-(item, key, callback).</p></td>
+array.
+Invoked with (item, key, callback).</p></td>
         </tr>
 
     
@@ -2121,7 +2111,7 @@ arguments or with an explicit <code>null</code> argument. Invoked with
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="eachOfLimit.js.html">eachOfLimit.js</a>, <a href="eachOfLimit.js.html#line3">line 3</a>
+        <a href="eachOfLimit.js.html">eachOfLimit.js</a>, <a href="eachOfLimit.js.html#line4">line 4</a>
     </li></ul></dd>
     
 
@@ -2239,7 +2229,7 @@ arguments or with an explicit <code>null</code> argument. Invoked with
             <td class="type">
             
                 
-<span class="param-type">function</span>
+<span class="param-type">AsyncFunction</span>
 
 
             
@@ -2249,11 +2239,9 @@ arguments or with an explicit <code>null</code> argument. Invoked with
 
             
 
-            <td class="description last"><p>A function to apply to each item in <code>coll</code>. The
-<code>key</code> is the item&apos;s key, or index in the case of an array. The iteratee is
-passed a <code>callback(err)</code> which must be called once it has completed. If no
-error has occurred, the callback should be run without arguments or with an
-explicit <code>null</code> argument. Invoked with (item, key, callback).</p></td>
+            <td class="description last"><p>An async function to apply to each item in
+<code>coll</code>.
+Invoked with (item, key, callback).</p></td>
         </tr>
 
     
@@ -2442,7 +2430,7 @@ functions have finished, or an error occurs. Invoked with (err).</p></td>
             <td class="type">
             
                 
-<span class="param-type">function</span>
+<span class="param-type">AsyncFunction</span>
 
 
             
@@ -2452,12 +2440,11 @@ functions have finished, or an error occurs. Invoked with (err).</p></td>
 
             
 
-            <td class="description last"><p>A function to apply to each
-item in <code>coll</code>. The iteratee is passed a <code>callback(err)</code> which must be called
-once it has completed. If no error has occurred, the <code>callback</code> should be run
-without arguments or with an explicit <code>null</code> argument. The array index is
-not passed to the iteratee. Invoked with (item, callback). If you need the
-index, use <code>eachOfSeries</code>.</p></td>
+            <td class="description last"><p>An async function to apply to each
+item in <code>coll</code>.
+The array index is not passed to the iteratee.
+If you need the index, use <code>eachOfSeries</code>.
+Invoked with (item, callback).</p></td>
         </tr>
 
     
@@ -2647,7 +2634,7 @@ iteratee call returns <code>false</code>, the main <code>callback</code> is imme
             <td class="type">
             
                 
-<span class="param-type">function</span>
+<span class="param-type">AsyncFunction</span>
 
 
             
@@ -2657,10 +2644,10 @@ iteratee call returns <code>false</code>, the main <code>callback</code> is imme
 
             
 
-            <td class="description last"><p>A truth test to apply to each item in the
-collection in parallel. The iteratee is passed a <code>callback(err, truthValue)</code>
-which must be called with a  boolean argument once it has completed. Invoked
-with (item, callback).</p></td>
+            <td class="description last"><p>An async truth test to apply to each item
+in the collection in parallel.
+The iteratee must complete with a boolean result value.
+Invoked with (item, callback).</p></td>
         </tr>
 
     
@@ -2877,7 +2864,7 @@ depending on the values of the async tests. Invoked with (err, result).</p></td>
             <td class="type">
             
                 
-<span class="param-type">function</span>
+<span class="param-type">AsyncFunction</span>
 
 
             
@@ -2887,10 +2874,10 @@ depending on the values of the async tests. Invoked with (err, result).</p></td>
 
             
 
-            <td class="description last"><p>A truth test to apply to each item in the
-collection in parallel. The iteratee is passed a <code>callback(err, truthValue)</code>
-which must be called with a  boolean argument once it has completed. Invoked
-with (item, callback).</p></td>
+            <td class="description last"><p>An async truth test to apply to each item
+in the collection in parallel.
+The iteratee must complete with a boolean result value.
+Invoked with (item, callback).</p></td>
         </tr>
 
     
@@ -3080,7 +3067,7 @@ depending on the values of the async tests. Invoked with (err, result).</p></td>
             <td class="type">
             
                 
-<span class="param-type">function</span>
+<span class="param-type">AsyncFunction</span>
 
 
             
@@ -3090,10 +3077,10 @@ depending on the values of the async tests. Invoked with (err, result).</p></td>
 
             
 
-            <td class="description last"><p>A truth test to apply to each item in the
-collection in parallel. The iteratee is passed a <code>callback(err, truthValue)</code>
-which must be called with a  boolean argument once it has completed. Invoked
-with (item, callback).</p></td>
+            <td class="description last"><p>An async truth test to apply to each item
+in the collection in series.
+The iteratee must complete with a boolean result value.
+Invoked with (item, callback).</p></td>
         </tr>
 
     
@@ -3918,7 +3905,7 @@ the original Objects&apos; keys (but this can vary across JavaScript engines).</
             <td class="type">
             
                 
-<span class="param-type">function</span>
+<span class="param-type">AsyncFunction</span>
 
 
             
@@ -3928,10 +3915,10 @@ the original Objects&apos; keys (but this can vary across JavaScript engines).</
 
             
 
-            <td class="description last"><p>A function to apply to each item in <code>coll</code>.
-The iteratee is passed a <code>callback(err, key)</code> which must be called once it
-has completed with an error (which can be <code>null</code>) and the <code>key</code> to group the
-value under. Invoked with (value, callback).</p></td>
+            <td class="description last"><p>An async function to apply to each item in
+<code>coll</code>.
+The iteratee should complete with a <code>key</code> to group the value under.
+Invoked with (value, callback).</p></td>
         </tr>
 
     
@@ -4145,7 +4132,7 @@ properties are arrays of values which returned the corresponding key.</p></td>
             <td class="type">
             
                 
-<span class="param-type">function</span>
+<span class="param-type">AsyncFunction</span>
 
 
             
@@ -4155,10 +4142,10 @@ properties are arrays of values which returned the corresponding key.</p></td>
 
             
 
-            <td class="description last"><p>A function to apply to each item in <code>coll</code>.
-The iteratee is passed a <code>callback(err, key)</code> which must be called once it
-has completed with an error (which can be <code>null</code>) and the <code>key</code> to group the
-value under. Invoked with (value, callback).</p></td>
+            <td class="description last"><p>An async function to apply to each item in
+<code>coll</code>.
+The iteratee should complete with a <code>key</code> to group the value under.
+Invoked with (value, callback).</p></td>
         </tr>
 
     
@@ -4366,7 +4353,7 @@ properties are arrays of values which returned the corresponding key.</p></td>
             <td class="type">
             
                 
-<span class="param-type">function</span>
+<span class="param-type">AsyncFunction</span>
 
 
             
@@ -4376,10 +4363,10 @@ properties are arrays of values which returned the corresponding key.</p></td>
 
             
 
-            <td class="description last"><p>A function to apply to each item in <code>coll</code>.
-The iteratee is passed a <code>callback(err, key)</code> which must be called once it
-has completed with an error (which can be <code>null</code>) and the <code>key</code> to group the
-value under. Invoked with (value, callback).</p></td>
+            <td class="description last"><p>An async function to apply to each item in
+<code>coll</code>.
+The iteratee should complete with a <code>key</code> to group the value under.
+Invoked with (value, callback).</p></td>
         </tr>
 
     
@@ -4576,7 +4563,7 @@ vary across JavaScript engines).</p>
             <td class="type">
             
                 
-<span class="param-type">function</span>
+<span class="param-type">AsyncFunction</span>
 
 
             
@@ -4586,10 +4573,10 @@ vary across JavaScript engines).</p>
 
             
 
-            <td class="description last"><p>A function to apply to each item in <code>coll</code>.
-The iteratee is passed a <code>callback(err, transformed)</code> which must be called
-once it has completed with an error (which can be <code>null</code>) and a
-transformed item. Invoked with (item, callback).</p></td>
+            <td class="description last"><p>An async function to apply to each item in
+<code>coll</code>.
+The iteratee should complete with the transformed item.
+Invoked with (item, callback).</p></td>
         </tr>
 
     
@@ -4797,7 +4784,7 @@ transformed items from the <code>coll</code>. Invoked with (err, results).</p></
             <td class="type">
             
                 
-<span class="param-type">function</span>
+<span class="param-type">AsyncFunction</span>
 
 
             
@@ -4807,10 +4794,10 @@ transformed items from the <code>coll</code>. Invoked with (err, results).</p></
 
             
 
-            <td class="description last"><p>A function to apply to each item in <code>coll</code>.
-The iteratee is passed a <code>callback(err, transformed)</code> which must be called
-once it has completed with an error (which can be <code>null</code>) and a transformed
-item. Invoked with (item, callback).</p></td>
+            <td class="description last"><p>An async function to apply to each item in
+<code>coll</code>.
+The iteratee should complete with the transformed item.
+Invoked with (item, callback).</p></td>
         </tr>
 
     
@@ -4995,7 +4982,7 @@ transformed items from the <code>coll</code>. Invoked with (err, results).</p></
             <td class="type">
             
                 
-<span class="param-type">function</span>
+<span class="param-type">AsyncFunction</span>
 
 
             
@@ -5005,10 +4992,10 @@ transformed items from the <code>coll</code>. Invoked with (err, results).</p></
 
             
 
-            <td class="description last"><p>A function to apply to each item in <code>coll</code>.
-The iteratee is passed a <code>callback(err, transformed)</code> which must be called
-once it has completed with an error (which can be <code>null</code>) and a
-transformed item. Invoked with (item, callback).</p></td>
+            <td class="description last"><p>An async function to apply to each item in
+<code>coll</code>.
+The iteratee should complete with the transformed item.
+Invoked with (item, callback).</p></td>
         </tr>
 
     
@@ -5195,7 +5182,7 @@ be roughly in the order they complete, (but this is very engine-specific)</p>
             <td class="type">
             
                 
-<span class="param-type">function</span>
+<span class="param-type">AsyncFunction</span>
 
 
             
@@ -5205,10 +5192,10 @@ be roughly in the order they complete, (but this is very engine-specific)</p>
 
             
 
-            <td class="description last"><p>A function to apply to each value and key in
-<code>coll</code>. The iteratee is passed a <code>callback(err, transformed)</code> which must be
-called once it has completed with an error (which can be <code>null</code>) and a
-transformed value. Invoked with (value, key, callback).</p></td>
+            <td class="description last"><p>A function to apply to each value and key
+in <code>coll</code>.
+The iteratee should complete with the transformed value as its result.
+Invoked with (value, key, callback).</p></td>
         </tr>
 
     
@@ -5423,7 +5410,7 @@ time.</p>
             <td class="type">
             
                 
-<span class="param-type">function</span>
+<span class="param-type">AsyncFunction</span>
 
 
             
@@ -5433,10 +5420,10 @@ time.</p>
 
             
 
-            <td class="description last"><p>A function to apply to each value in <code>obj</code>.
-The iteratee is passed a <code>callback(err, transformed)</code> which must be called
-once it has completed with an error (which can be <code>null</code>) and a
-transformed value. Invoked with (value, key, callback).</p></td>
+            <td class="description last"><p>A function to apply to each value and key
+in <code>coll</code>.
+The iteratee should complete with the transformed value as its result.
+Invoked with (value, key, callback).</p></td>
         </tr>
 
     
@@ -5509,7 +5496,7 @@ Invoked with (err, result).</p></td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="mapValuesLimit.js.html">mapValuesLimit.js</a>, <a href="mapValuesLimit.js.html#line6">line 6</a>
+        <a href="mapValuesLimit.js.html">mapValuesLimit.js</a>, <a href="mapValuesLimit.js.html#line7">line 7</a>
     </li></ul></dd>
     
 
@@ -5616,7 +5603,7 @@ Invoked with (err, result).</p></td>
             <td class="type">
             
                 
-<span class="param-type">function</span>
+<span class="param-type">AsyncFunction</span>
 
 
             
@@ -5626,10 +5613,10 @@ Invoked with (err, result).</p></td>
 
             
 
-            <td class="description last"><p>A function to apply to each value in <code>obj</code>.
-The iteratee is passed a <code>callback(err, transformed)</code> which must be called
-once it has completed with an error (which can be <code>null</code>) and a
-transformed value. Invoked with (value, key, callback).</p></td>
+            <td class="description last"><p>A function to apply to each value and key
+in <code>coll</code>.
+The iteratee should complete with the transformed value as its result.
+Invoked with (value, key, callback).</p></td>
         </tr>
 
     
@@ -5850,7 +5837,7 @@ probably a good idea to do so.</p>
             <td class="type">
             
                 
-<span class="param-type">function</span>
+<span class="param-type">AsyncFunction</span>
 
 
             
@@ -5861,11 +5848,11 @@ probably a good idea to do so.</p>
             
 
             <td class="description last"><p>A function applied to each item in the
-array to produce the next step in the reduction. The <code>iteratee</code> is passed a
-<code>callback(err, reduction)</code> which accepts an optional error as its first
-argument, and the state of the reduction as the second. If an error is
-passed to the callback, the reduction is stopped and the main <code>callback</code> is
-immediately called with the error. Invoked with (memo, item, callback).</p></td>
+array to produce the next step in the reduction.
+The <code>iteratee</code> should complete with the next state of the reduction.
+If the iteratee complete with an error, the reduction is stopped and the
+main <code>callback</code> is immediately called with the error.
+Invoked with (memo, item, callback).</p></td>
         </tr>
 
     
@@ -5949,7 +5936,7 @@ immediately called with the error. Invoked with (memo, item, callback).</p></td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="reduce.js.html">reduce.js</a>, <a href="reduce.js.html#line5">line 5</a>
+        <a href="reduce.js.html">reduce.js</a>, <a href="reduce.js.html#line6">line 6</a>
     </li></ul></dd>
     
 
@@ -6077,7 +6064,7 @@ immediately called with the error. Invoked with (memo, item, callback).</p></td>
             <td class="type">
             
                 
-<span class="param-type">function</span>
+<span class="param-type">AsyncFunction</span>
 
 
             
@@ -6088,11 +6075,11 @@ immediately called with the error. Invoked with (memo, item, callback).</p></td>
             
 
             <td class="description last"><p>A function applied to each item in the
-array to produce the next step in the reduction. The <code>iteratee</code> is passed a
-<code>callback(err, reduction)</code> which accepts an optional error as its first
-argument, and the state of the reduction as the second. If an error is
-passed to the callback, the reduction is stopped and the main <code>callback</code> is
-immediately called with the error. Invoked with (memo, item, callback).</p></td>
+array to produce the next step in the reduction.
+The <code>iteratee</code> should complete with the next state of the reduction.
+If the iteratee complete with an error, the reduction is stopped and the
+main <code>callback</code> is immediately called with the error.
+Invoked with (memo, item, callback).</p></td>
         </tr>
 
     
@@ -6287,9 +6274,10 @@ immediately called with the error. Invoked with (memo, item, callback).</p></td>
 
             
 
-            <td class="description last"><p>A truth test to apply to each item in <code>coll</code>.
-The <code>iteratee</code> is passed a <code>callback(err, truthValue)</code>, which must be called
-with a boolean argument once it has completed. Invoked with (item, callback).</p></td>
+            <td class="description last"><p>An async truth test to apply to each item in
+<code>coll</code>.
+The should complete with a boolean value as its <code>result</code>.
+Invoked with (item, callback).</p></td>
         </tr>
 
     
@@ -6519,9 +6507,10 @@ time.</p>
 
             
 
-            <td class="description last"><p>A truth test to apply to each item in <code>coll</code>.
-The <code>iteratee</code> is passed a <code>callback(err, truthValue)</code>, which must be called
-with a boolean argument once it has completed. Invoked with (item, callback).</p></td>
+            <td class="description last"><p>An async truth test to apply to each item in
+<code>coll</code>.
+The should complete with a boolean value as its <code>result</code>.
+Invoked with (item, callback).</p></td>
         </tr>
 
     
@@ -6715,9 +6704,10 @@ with a boolean argument once it has completed. Invoked with (item, callback).</p
 
             
 
-            <td class="description last"><p>A truth test to apply to each item in <code>coll</code>.
-The <code>iteratee</code> is passed a <code>callback(err, truthValue)</code>, which must be called
-with a boolean argument once it has completed. Invoked with (item, callback).</p></td>
+            <td class="description last"><p>An async truth test to apply to each item in
+<code>coll</code>.
+The should complete with a boolean value as its <code>result</code>.
+Invoked with (item, callback).</p></td>
         </tr>
 
     
@@ -6908,7 +6898,7 @@ called.</p>
             <td class="type">
             
                 
-<span class="param-type">function</span>
+<span class="param-type">AsyncFunction</span>
 
 
             
@@ -6918,10 +6908,10 @@ called.</p>
 
             
 
-            <td class="description last"><p>A truth test to apply to each item in the array
-in parallel. The iteratee is passed a <code>callback(err, truthValue)</code> which must
-be called with a boolean argument once it has completed. Invoked with
-(item, callback).</p></td>
+            <td class="description last"><p>An async truth test to apply to each item
+in the collections in parallel.
+The iteratee should complete with a boolean <code>result</code> value.
+Invoked with (item, callback).</p></td>
         </tr>
 
     
@@ -7139,7 +7129,7 @@ tests. Invoked with (err, result).</p></td>
             <td class="type">
             
                 
-<span class="param-type">function</span>
+<span class="param-type">AsyncFunction</span>
 
 
             
@@ -7149,10 +7139,10 @@ tests. Invoked with (err, result).</p></td>
 
             
 
-            <td class="description last"><p>A truth test to apply to each item in the array
-in parallel. The iteratee is passed a <code>callback(err, truthValue)</code> which must
-be called with a boolean argument once it has completed. Invoked with
-(item, callback).</p></td>
+            <td class="description last"><p>An async truth test to apply to each item
+in the collections in parallel.
+The iteratee should complete with a boolean <code>result</code> value.
+Invoked with (item, callback).</p></td>
         </tr>
 
     
@@ -7343,7 +7333,7 @@ tests. Invoked with (err, result).</p></td>
             <td class="type">
             
                 
-<span class="param-type">function</span>
+<span class="param-type">AsyncFunction</span>
 
 
             
@@ -7353,10 +7343,10 @@ tests. Invoked with (err, result).</p></td>
 
             
 
-            <td class="description last"><p>A truth test to apply to each item in the array
-in parallel. The iteratee is passed a <code>callback(err, truthValue)</code> which must
-be called with a boolean argument once it has completed. Invoked with
-(item, callback).</p></td>
+            <td class="description last"><p>An async truth test to apply to each item
+in the collections in series.
+The iteratee should complete with a boolean <code>result</code> value.
+Invoked with (item, callback).</p></td>
         </tr>
 
     
@@ -7543,7 +7533,7 @@ tests. Invoked with (err, result).</p></td>
             <td class="type">
             
                 
-<span class="param-type">function</span>
+<span class="param-type">AsyncFunction</span>
 
 
             
@@ -7553,10 +7543,11 @@ tests. Invoked with (err, result).</p></td>
 
             
 
-            <td class="description last"><p>A function to apply to each item in <code>coll</code>.
-The iteratee is passed a <code>callback(err, sortValue)</code> which must be called once
-it has completed with an error (which can be <code>null</code>) and a value to use as
-the sort criteria. Invoked with (item, callback).</p></td>
+            <td class="description last"><p>An async function to apply to each item in
+<code>coll</code>.
+The iteratee should complete with a value to use as the sort criteria as
+its <code>result</code>.
+Invoked with (item, callback).</p></td>
         </tr>
 
     
@@ -7656,7 +7647,7 @@ async.sortBy([1,9,3,5], function(x, callback) {
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="sortBy.js.html">sortBy.js</a>, <a href="sortBy.js.html#line6">line 6</a>
+        <a href="sortBy.js.html">sortBy.js</a>, <a href="sortBy.js.html#line7">line 7</a>
     </li></ul></dd>
     
 
@@ -7790,7 +7781,7 @@ it will default to an empty Object or Array, depending on the type of <code>coll
             <td class="type">
             
                 
-<span class="param-type">function</span>
+<span class="param-type">AsyncFunction</span>
 
 
             
@@ -7801,10 +7792,7 @@ it will default to an empty Object or Array, depending on the type of <code>coll
             
 
             <td class="description last"><p>A function applied to each item in the
-collection that potentially modifies the accumulator. The <code>iteratee</code> is
-passed a <code>callback(err)</code> which accepts an optional error as its first
-argument. If an error is passed to the callback, the transform is stopped
-and the main <code>callback</code> is immediately called with the error.
+collection that potentially modifies the accumulator.
 Invoked with (accumulator, item, key, callback).</p></td>
         </tr>
 
@@ -7899,7 +7887,7 @@ Invoked with (err, result).</p></td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="transform.js.html">transform.js</a>, <a href="transform.js.html#line7">line 7</a>
+        <a href="transform.js.html">transform.js</a>, <a href="transform.js.html#line8">line 8</a>
     </li></ul></dd>
     
 
@@ -7935,7 +7923,7 @@ Invoked with (err, result).</p></td>
 
 
     <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Tue Mar 28 2017 00:21:43 GMT-0400 (EDT) using the Minami theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Sun Apr 02 2017 22:13:19 GMT-0400 (EDT) using the Minami theme.
  Documentation has been modified from the original.  For more information, please see the <a href="https://github.com/caolan/async">async</a> repository.</footer></div>
 </div>
 
